@@ -27,6 +27,7 @@ Demo = {
       size:     $('#size'),
       sort:     $('#sort'),
       color:    $('#color'),
+      padding:    $('#padding'),
       ratio:    $('#ratio'),
       nofit:    $('#nofit')
     };
@@ -40,6 +41,7 @@ Demo = {
     Demo.el.size.change(Demo.run);
     Demo.el.sort.change(Demo.run);
     Demo.el.color.change(Demo.run);
+    Demo.el.padding.change(Demo.run);
     Demo.el.examples.change(Demo.blocks.examples.change);
     Demo.run();
 
@@ -58,7 +60,8 @@ Demo = {
 
     Demo.sort.now(blocks);
 
-    packer.fit(blocks);
+    var padding = parseInt(Demo.el.padding.val());
+    packer.fit(blocks, padding);
 
     Demo.canvas.reset(packer.root.w, packer.root.h);
     Demo.canvas.blocks(blocks);
