@@ -60,7 +60,8 @@
 }
 
 #canvas {
-    background-color: #ddd;
+    background-color: #fefefe;
+    box-shadow: 2px 2px 3px 2px #ddd;
 }
 
 #unsupported {
