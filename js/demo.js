@@ -141,11 +141,11 @@ Demo = {
 
     rect:  function(x, y, w, h, color) {
       Demo.el.draw.fillStyle = color;
-      Demo.el.draw.fillRect(x + 0.5, y + 0.5, w, h);
+      Demo.el.draw.fillRect(x+0.5, y+0.5, w-1, h-1)
     },
 
     stroke: function(x, y, w, h) {
-      Demo.el.draw.strokeRect(x + 0.5, y + 0.5, w, h);
+      Demo.el.draw.strokeRect(x+0.5, y+0.5, w-1, h-1);
     },
 
     blocks: function(blocks) {
