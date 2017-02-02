@@ -9,6 +9,7 @@
 
   <h1>Bin Packing Algorithm</h1>
 
+<div id="content">
   <div id="settings">
 
     <div class='examples'>
@@ -22,27 +23,25 @@
         <option value='power2'>   powers of 2   </option>
         <option value='oddeven'>  odd and even  </option>
         <option value='complex'>  complex       </option>
-        <option value='devtools'>  devtools       </option>
+        <option selected value='devtools'>  devtools icons      </option>
       </select>
     </div>
-      
+
     <div class='blocks'>
       <label for='blocks'>Blocks: <span class='example'><b>W</b>x<b>H</b>[x<b>N</b>]</span></label>
       <textarea id='blocks' rows=12></textarea>
     </div>
 
     <div class='size'>
-      <label for='size'>size: </label>
+      <label for='size'>algorithm: </label>
       <select id='size'>
-        <option>500x500</option>
-        <option>800x600</option>
-        <option selected>automatic</option>
-        <option>devtools packer</option>
+        <option>automatic</option>
+        <option selected>devtools packer</option>
       </select>
     </div>
 
     <div class='sort'>
-      <label for='sort'>sort: </label>
+      <label for='sort'>sprite pre-sort: </label>
       <select id='sort'>
         <option>none</option>
         <option>width</option>
@@ -81,6 +80,7 @@
       </div>
     </canvas>
   </div>
+</div>
 
   <script src='js/jquery.js'>        </script>
   <script src='js/packer.js'>        </script>
