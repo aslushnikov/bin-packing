@@ -30,20 +30,34 @@ class SVGSpriteSheet {
             console.assert(this._positions.has(sprite), 'all sprites must have defined positions!');
     }
 
+    /**
+     * @return {number}
+     */
     width() {
         return this._width;
     }
 
+    /**
+     * @return {number}
+     */
     height() {
         return this._height;
     }
 
+    /**
+     * @return {!Array<!SVGSprite>}
+     */
     sprites() {
         return this._sprites;
     }
 
+    /**
+     * @return {!{x: number, y: number}}
+     */
     spritePosition(sprite) {
-        return this._positions.get(sprite) || null;
+        var position = this._positions.get(sprite);
+        console.assert(position, 'do not know position of foreign sprite!');
+        return position;
     }
 
     /**
