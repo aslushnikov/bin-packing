@@ -62,7 +62,6 @@ Demo = {
 
     Demo.canvas.reset(packer.root.w, packer.root.h);
     Demo.canvas.blocks(blocks);
-    Demo.canvas.boundary(packer.root);
     Demo.report(blocks, packer.root.w, packer.root.h);
   },
 
@@ -70,6 +69,9 @@ Demo = {
 
   packer: function() {
     var size = Demo.el.size.val();
+    if (size == 'devtools packer') {
+      return new DevtoolsPacker();
+    }
     if (size == 'automatic') {
       return new GrowingPacker();
     }
@@ -150,18 +152,12 @@ Demo = {
       var n, block;
       for (n = 0 ; n < blocks.length ; n++) {
         block = blocks[n];
-        if (block.fit)
+        if (block.fit) {
           Demo.canvas.rect(block.fit.x, block.fit.y, block.w, block.h, Demo.color(n));
+          Demo.canvas.stroke(block.fit.x, block.fit.y, block.w, block.h);
+        }
       }
     },
-    
-    boundary: function(node) {
-      if (node) {
-        Demo.canvas.stroke(node.x, node.y, node.w, node.h);
-        Demo.canvas.boundary(node.down);
-        Demo.canvas.boundary(node.right);
-      }
-    }
   },
 
   //---------------------------------------------------------------------------
@@ -237,6 +233,21 @@ Demo = {
         {w: 80,  h: 400, num:   1},
         {w:  10, h:  10, num: 100},
         {w:   5, h:   5, num: 500}
+      ],
+
+      devtools: [
+        {w: 28, h: 24, num: 57},
+        {w: 10, h: 10, num: 17},
+        {w: 32, h: 24, num: 8},
+        {w: 16, h: 16, num: 6},
+        {w: 10, h: 8, num: 3},
+        {w: 13, h: 13, num: 3},
+        {w: 12, h: 12, num: 2},
+        {w: 14, h: 14, num: 2},
+        {w: 11, h: 11, num: 1},
+        {w: 9, h: 9, num: 1},
+        {w: 12, h: 14, num: 2},
+        {w: 24, h: 26, num: 1},
       ],
 
       current: function() {
